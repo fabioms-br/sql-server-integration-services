@@ -1,5 +1,7 @@
-## SQL Server Integration Services
-Keywords: Data Platform, Execute SQL Scripts, Information Management, SQL Scripts, Data, Azure Stream Analytics, Azure, ADF, SQL Data Sync, Azure Machine Learning, SQL Server Management, Azure Data, SSIS, Azure Synapse Analytics, Azure Data Factory
+## SQL Server Integration Services  
+**Keywords:** Data Platform, Execute SQL Scripts, Information Management, SQL Scripts, Data, Azure Stream Analytics, Azure, ADF, SQL Data Sync, Azure Machine Learning, SQL Server Management, Azure Data, SSIS, Azure Synapse Analytics, Azure Data Factory  
+
+**Youtube Playlist**: [https://youtube.com/playlist?list=PL3CylihEP9UTWDBYthJcazPG8czess0i4](https://youtube.com/playlist?list=PL3CylihEP9UTWDBYthJcazPG8czess0i4)  
 ### [1 - Como Importar arquivo CSV no SQL Server Integration Services](/sql-server-ssis-importar-arquivo-csv.md)
 [#top10] Apresentamos nesse vídeo como importar um arquivo em formato CSV utilizando o SQL Server Integration Services.
 

@@ -1,0 +1,2273 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/5/2022 9:58:30 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="POWERPLACE"
+  DTS:CreatorName="POWERPLACE\brgro"
+  DTS:DTSID="{8E0EEE61-477A-41DD-9957-87C1EFBB984F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{C83AB309-7AE8-4272-B357-210838124382}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LEARNPLACE.SANDBOX.sa]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{F5856C72-755D-4925-8396-49998BE1AAC5}"
+      DTS:ObjectName="LEARNPLACE.SANDBOX.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=LEARNPLACE;User ID=sa;Initial Catalog=SANDBOX;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1"></DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2A3FC8D1-46D5-4F04-BBCA-57EFDC128602}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Resultado">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{EB63E712-FD28-4C96-9F6C-E3E7EA92ECED}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\Aggregate"
+              componentClassID="Microsoft.Aggregate"
+              contactInfo="Aggregate;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;3"
+              description="Aggregates data with functions such as Average, Sum, Count, Max, and Min. For example, group data to compute the sum of sales per product or the average visits per day."
+              name="Aggregate"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the approximate number of distinct values in a column that the aggregation counts distinctly. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no CountDistinctScale value is used."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Specifies the exact number of distinct values in a column that the aggregation counts distinctly. If a CountDistinctScale value is specified, the value in CountDistinctKeys takes precedence."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage by which memory can be extended during the aggregation. Valid values are between 1 and 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1]"
+                  name="Aggregate Input 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[CO_IES]"
+                      cachedDataType="i2"
+                      cachedName="CO_IES"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[CO_IES]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[QT_INSCRITO_TOTAL]"
+                      cachedDataType="i4"
+                      cachedName="QT_INSCRITO_TOTAL"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_INSCRITO_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[QT_VAGA_TOTAL]"
+                      cachedDataType="i4"
+                      cachedName="QT_VAGA_TOTAL"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_VAGA_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[QT_INGRESSO_TOTAL]"
+                      cachedDataType="i4"
+                      cachedName="QT_INGRESSO_TOTAL"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_INGRESSO_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[QT_CONCLUINTE_TOTAL]"
+                      cachedDataType="i4"
+                      cachedName="QT_CONCLUINTE_TOTAL"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_CONCLUINTE_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1].Columns[QT_MATRICULA_TOTAL]"
+                      cachedDataType="i4"
+                      cachedName="QT_MATRICULA_TOTAL"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_MATRICULA_TOTAL]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1]"
+                  name="Aggregate Output 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the approximate number of group by keys that the aggregation produces. Low indicates 500,000 key values, Medium indicates 5 million key values, and High indicates more than 25 million key values. Unspecified indicates no KeyScale value is used."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the exact number of group by keys that the aggregation produces. If a KeyScale value is specified, the value in Keys takes precedence."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CO_IES]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CO_IES]"
+                      name="CO_IES">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[CO_IES]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_CURSO_TOTAL]"
+                      dataType="ui8"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_CURSO_TOTAL]"
+                      name="QT_CURSO_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\0:invalid}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">2</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_INSCRITO_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_INSCRITO_TOTAL]"
+                      name="QT_INSCRITO_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_INSCRITO_TOTAL]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_VAGA_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_VAGA_TOTAL]"
+                      name="QT_VAGA_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_VAGA_TOTAL]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_INGRESSO_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_INGRESSO_TOTAL]"
+                      name="QT_INGRESSO_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_INGRESSO_TOTAL]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_CONCLUINTE_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_CONCLUINTE_TOTAL]"
+                      name="QT_CONCLUINTE_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_CONCLUINTE_TOTAL]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_MATRICULA_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_MATRICULA_TOTAL]"
+                      name="QT_MATRICULA_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the ID of the input column used in the aggregation."
+                          name="AggregationColumnId">#{Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_MATRICULA_TOTAL]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the type of aggregation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">4</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indicates whether the column requires special handling because it may contain oversized data or it requires precision beyond a float data type."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the string comparison options."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\CURSO"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="CURSO"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        CO_IES, QT_INSCRITO_TOTAL, QT_VAGA_TOTAL, QT_INGRESSO_TOTAL, QT_CONCLUINTE_TOTAL, QT_MATRICULA_TOTAL
+FROM            dbo.SUP_CURSO_2019</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\CURSO.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LEARNPLACE.SANDBOX.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[LEARNPLACE.SANDBOX.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[CO_IES]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[CO_IES]"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[CO_IES]"
+                      name="CO_IES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_INSCRITO_TOTAL]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[QT_INSCRITO_TOTAL]"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_INSCRITO_TOTAL]"
+                      name="QT_INSCRITO_TOTAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_VAGA_TOTAL]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[QT_VAGA_TOTAL]"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_VAGA_TOTAL]"
+                      name="QT_VAGA_TOTAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_INGRESSO_TOTAL]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[QT_INGRESSO_TOTAL]"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_INGRESSO_TOTAL]"
+                      name="QT_INGRESSO_TOTAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_CONCLUINTE_TOTAL]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[QT_CONCLUINTE_TOTAL]"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_CONCLUINTE_TOTAL]"
+                      name="QT_CONCLUINTE_TOTAL"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_MATRICULA_TOTAL]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[QT_MATRICULA_TOTAL]"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].Columns[QT_MATRICULA_TOTAL]"
+                      name="QT_MATRICULA_TOTAL"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[CO_IES]"
+                      dataType="i2"
+                      name="CO_IES" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[QT_INSCRITO_TOTAL]"
+                      dataType="i4"
+                      name="QT_INSCRITO_TOTAL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[QT_VAGA_TOTAL]"
+                      dataType="i4"
+                      name="QT_VAGA_TOTAL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[QT_INGRESSO_TOTAL]"
+                      dataType="i4"
+                      name="QT_INGRESSO_TOTAL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[QT_CONCLUINTE_TOTAL]"
+                      dataType="i4"
+                      name="QT_CONCLUINTE_TOTAL" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output].ExternalColumns[QT_MATRICULA_TOTAL]"
+                      dataType="i4"
+                      name="QT_MATRICULA_TOTAL" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[CO_IES]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[CO_IES]"
+                      name="CO_IES" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[QT_INSCRITO_TOTAL]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[QT_INSCRITO_TOTAL]"
+                      name="QT_INSCRITO_TOTAL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[QT_VAGA_TOTAL]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[QT_VAGA_TOTAL]"
+                      name="QT_VAGA_TOTAL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[QT_INGRESSO_TOTAL]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[QT_INGRESSO_TOTAL]"
+                      name="QT_INGRESSO_TOTAL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[QT_CONCLUINTE_TOTAL]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[QT_CONCLUINTE_TOTAL]"
+                      name="QT_CONCLUINTE_TOTAL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[QT_MATRICULA_TOTAL]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[QT_MATRICULA_TOTAL]"
+                      name="QT_MATRICULA_TOTAL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\IES"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="IES"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[SUP_IES_2019]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT        NU_ANO_CENSO, CO_IES, NO_IES, SG_IES, CO_MANTENEDORA, NO_MANTENEDORA, TP_ORGANIZACAO_ACADEMICA, TP_CATEGORIA_ADMINISTRATIVA, CO_REGIAO, CO_UF, CO_MUNICIPIO, IN_CAPITAL
+FROM            dbo.SUP_IES_2019</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\IES.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LEARNPLACE.SANDBOX.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[LEARNPLACE.SANDBOX.sa]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NU_ANO_CENSO]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[NU_ANO_CENSO]"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NU_ANO_CENSO]"
+                      name="NU_ANO_CENSO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_IES]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[CO_IES]"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_IES]"
+                      name="CO_IES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NO_IES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[NO_IES]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NO_IES]"
+                      name="NO_IES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[SG_IES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[SG_IES]"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[SG_IES]"
+                      name="SG_IES"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_MANTENEDORA]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[CO_MANTENEDORA]"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_MANTENEDORA]"
+                      name="CO_MANTENEDORA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NO_MANTENEDORA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[NO_MANTENEDORA]"
+                      length="1000"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NO_MANTENEDORA]"
+                      name="NO_MANTENEDORA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      name="TP_CATEGORIA_ADMINISTRATIVA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[TP_ORGANIZACAO_ACADEMICA]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[TP_ORGANIZACAO_ACADEMICA]"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[TP_ORGANIZACAO_ACADEMICA]"
+                      name="TP_ORGANIZACAO_ACADEMICA"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_REGIAO]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[CO_REGIAO]"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_REGIAO]"
+                      name="CO_REGIAO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_UF]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[CO_UF]"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_UF]"
+                      name="CO_UF"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_MUNICIPIO]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[CO_MUNICIPIO]"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_MUNICIPIO]"
+                      name="CO_MUNICIPIO"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[IN_CAPITAL]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[IN_CAPITAL]"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[IN_CAPITAL]"
+                      name="IN_CAPITAL"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[NU_ANO_CENSO]"
+                      dataType="i2"
+                      name="NU_ANO_CENSO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[CO_IES]"
+                      dataType="i2"
+                      name="CO_IES" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[NO_IES]"
+                      dataType="wstr"
+                      length="1000"
+                      name="NO_IES" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[SG_IES]"
+                      dataType="wstr"
+                      length="50"
+                      name="SG_IES" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[CO_MANTENEDORA]"
+                      dataType="i2"
+                      name="CO_MANTENEDORA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[NO_MANTENEDORA]"
+                      dataType="wstr"
+                      length="1000"
+                      name="NO_MANTENEDORA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      dataType="i2"
+                      name="TP_CATEGORIA_ADMINISTRATIVA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[TP_ORGANIZACAO_ACADEMICA]"
+                      dataType="i2"
+                      name="TP_ORGANIZACAO_ACADEMICA" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[CO_REGIAO]"
+                      dataType="i2"
+                      name="CO_REGIAO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[CO_UF]"
+                      dataType="i2"
+                      name="CO_UF" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[CO_MUNICIPIO]"
+                      dataType="i4"
+                      name="CO_MUNICIPIO" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].ExternalColumns[IN_CAPITAL]"
+                      dataType="i2"
+                      name="IN_CAPITAL" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[NU_ANO_CENSO]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[NU_ANO_CENSO]"
+                      name="NU_ANO_CENSO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[CO_IES]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[CO_IES]"
+                      name="CO_IES" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[NO_IES]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[NO_IES]"
+                      name="NO_IES" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[SG_IES]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[SG_IES]"
+                      name="SG_IES" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[CO_MANTENEDORA]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[CO_MANTENEDORA]"
+                      name="CO_MANTENEDORA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[NO_MANTENEDORA]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[NO_MANTENEDORA]"
+                      name="NO_MANTENEDORA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      name="TP_CATEGORIA_ADMINISTRATIVA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[TP_ORGANIZACAO_ACADEMICA]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[TP_ORGANIZACAO_ACADEMICA]"
+                      name="TP_ORGANIZACAO_ACADEMICA" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[CO_REGIAO]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[CO_REGIAO]"
+                      name="CO_REGIAO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[CO_UF]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[CO_UF]"
+                      name="CO_UF" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[CO_MUNICIPIO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[CO_MUNICIPIO]"
+                      name="CO_MUNICIPIO" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[IN_CAPITAL]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[IN_CAPITAL]"
+                      name="IN_CAPITAL" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Merge Join"
+              componentClassID="Microsoft.MergeJoin"
+              contactInfo="Merge Join;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Combine two sorted data flows into one using the FULL, LEFT, or INNER join. We recommend this transformation when data flows can be sorted at their sources."
+              name="Merge Join"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of join to perform."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of columns in the ordering key."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the null values are treated as equal values."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indicates the requested maximum buffers per input before blocking."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Left Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[CO_IES]"
+                      cachedDataType="i2"
+                      cachedName="CO_IES"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_IES]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[NU_ANO_CENSO]"
+                      cachedDataType="i2"
+                      cachedName="NU_ANO_CENSO"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[NU_ANO_CENSO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[NO_IES]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="NO_IES"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[NO_IES]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[SG_IES]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SG_IES"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[SG_IES]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[CO_MANTENEDORA]"
+                      cachedDataType="i2"
+                      cachedName="CO_MANTENEDORA"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_MANTENEDORA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[NO_MANTENEDORA]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="NO_MANTENEDORA"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[NO_MANTENEDORA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      cachedDataType="i2"
+                      cachedName="TP_CATEGORIA_ADMINISTRATIVA"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[TP_ORGANIZACAO_ACADEMICA]"
+                      cachedDataType="i2"
+                      cachedName="TP_ORGANIZACAO_ACADEMICA"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[TP_ORGANIZACAO_ACADEMICA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[CO_REGIAO]"
+                      cachedDataType="i2"
+                      cachedName="CO_REGIAO"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_REGIAO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[CO_UF]"
+                      cachedDataType="i2"
+                      cachedName="CO_UF"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_UF]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[CO_MUNICIPIO]"
+                      cachedDataType="i4"
+                      cachedName="CO_MUNICIPIO"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_MUNICIPIO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[IN_CAPITAL]"
+                      cachedDataType="i2"
+                      cachedName="IN_CAPITAL"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[IN_CAPITAL]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+                  hasSideEffects="true"
+                  name="Merge Join Right Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[CO_IES]"
+                      cachedDataType="i2"
+                      cachedName="CO_IES"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[CO_IES]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_CURSO_TOTAL]"
+                      cachedDataType="ui8"
+                      cachedName="QT_CURSO_TOTAL"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_CURSO_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_INSCRITO_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_INSCRITO_TOTAL"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_INSCRITO_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_VAGA_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_VAGA_TOTAL"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_VAGA_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_INGRESSO_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_INGRESSO_TOTAL"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_INGRESSO_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_CONCLUINTE_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_CONCLUINTE_TOTAL"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_CONCLUINTE_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_MATRICULA_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_MATRICULA_TOTAL"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_MATRICULA_TOTAL]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]"
+                  isSorted="true"
+                  name="Merge Join Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[NU_ANO_CENSO]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[NU_ANO_CENSO]"
+                      name="NU_ANO_CENSO">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[NU_ANO_CENSO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_IES]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_IES]"
+                      name="CO_IES"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[CO_IES]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[NO_IES]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[NO_IES]"
+                      name="NO_IES">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[NO_IES]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[SG_IES]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[SG_IES]"
+                      name="SG_IES">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[SG_IES]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_MANTENEDORA]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_MANTENEDORA]"
+                      name="CO_MANTENEDORA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[CO_MANTENEDORA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[NO_MANTENEDORA]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[NO_MANTENEDORA]"
+                      name="NO_MANTENEDORA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[NO_MANTENEDORA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      name="TP_CATEGORIA_ADMINISTRATIVA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[TP_CATEGORIA_ADMINISTRATIVA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[TP_ORGANIZACAO_ACADEMICA]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[TP_ORGANIZACAO_ACADEMICA]"
+                      name="TP_ORGANIZACAO_ACADEMICA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[TP_ORGANIZACAO_ACADEMICA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_REGIAO]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_REGIAO]"
+                      name="CO_REGIAO">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[CO_REGIAO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_UF]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_UF]"
+                      name="CO_UF">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[CO_UF]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_MUNICIPIO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_MUNICIPIO]"
+                      name="CO_MUNICIPIO">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[CO_MUNICIPIO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[IN_CAPITAL]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[IN_CAPITAL]"
+                      name="IN_CAPITAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input].Columns[IN_CAPITAL]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_CURSO_TOTAL]"
+                      dataType="ui8"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_CURSO_TOTAL]"
+                      name="QT_CURSO_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_CURSO_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_INSCRITO_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_INSCRITO_TOTAL]"
+                      name="QT_INSCRITO_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_INSCRITO_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_VAGA_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_VAGA_TOTAL]"
+                      name="QT_VAGA_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_VAGA_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_INGRESSO_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_INGRESSO_TOTAL]"
+                      name="QT_INGRESSO_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_INGRESSO_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_CONCLUINTE_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_CONCLUINTE_TOTAL]"
+                      name="QT_CONCLUINTE_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_CONCLUINTE_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_MATRICULA_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_MATRICULA_TOTAL]"
+                      name="QT_MATRICULA_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[QT_MATRICULA_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Recordset Destination"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="Recordset Destination">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::Resultado</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[NU_ANO_CENSO]"
+                      cachedDataType="i2"
+                      cachedName="NU_ANO_CENSO"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[NU_ANO_CENSO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[CO_IES]"
+                      cachedDataType="i2"
+                      cachedName="CO_IES"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_IES]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[NO_IES]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="NO_IES"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[NO_IES]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[SG_IES]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SG_IES"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[SG_IES]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[CO_MANTENEDORA]"
+                      cachedDataType="i2"
+                      cachedName="CO_MANTENEDORA"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_MANTENEDORA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[NO_MANTENEDORA]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="NO_MANTENEDORA"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[NO_MANTENEDORA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      cachedDataType="i2"
+                      cachedName="TP_CATEGORIA_ADMINISTRATIVA"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[TP_ORGANIZACAO_ACADEMICA]"
+                      cachedDataType="i2"
+                      cachedName="TP_ORGANIZACAO_ACADEMICA"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[TP_ORGANIZACAO_ACADEMICA]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[CO_REGIAO]"
+                      cachedDataType="i2"
+                      cachedName="CO_REGIAO"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_REGIAO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[CO_UF]"
+                      cachedDataType="i2"
+                      cachedName="CO_UF"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_UF]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[CO_MUNICIPIO]"
+                      cachedDataType="i4"
+                      cachedName="CO_MUNICIPIO"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[CO_MUNICIPIO]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[IN_CAPITAL]"
+                      cachedDataType="i2"
+                      cachedName="IN_CAPITAL"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[IN_CAPITAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[QT_CURSO_TOTAL]"
+                      cachedDataType="ui8"
+                      cachedName="QT_CURSO_TOTAL"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_CURSO_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[QT_INSCRITO_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_INSCRITO_TOTAL"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_INSCRITO_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[QT_VAGA_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_VAGA_TOTAL"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_VAGA_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[QT_INGRESSO_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_INGRESSO_TOTAL"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_INGRESSO_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[QT_CONCLUINTE_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_CONCLUINTE_TOTAL"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_CONCLUINTE_TOTAL]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[QT_MATRICULA_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_MATRICULA_TOTAL"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[QT_MATRICULA_TOTAL]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[NU_ANO_CENSO]"
+                      cachedDataType="i2"
+                      cachedName="NU_ANO_CENSO"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NU_ANO_CENSO]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[CO_IES]"
+                      cachedDataType="i2"
+                      cachedName="CO_IES"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_IES]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[NO_IES]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="NO_IES"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NO_IES]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[SG_IES]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="SG_IES"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[SG_IES]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[CO_MANTENEDORA]"
+                      cachedDataType="i2"
+                      cachedName="CO_MANTENEDORA"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_MANTENEDORA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[NO_MANTENEDORA]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="NO_MANTENEDORA"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NO_MANTENEDORA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      cachedDataType="i2"
+                      cachedName="TP_CATEGORIA_ADMINISTRATIVA"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[TP_ORGANIZACAO_ACADEMICA]"
+                      cachedDataType="i2"
+                      cachedName="TP_ORGANIZACAO_ACADEMICA"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[TP_ORGANIZACAO_ACADEMICA]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[CO_REGIAO]"
+                      cachedDataType="i2"
+                      cachedName="CO_REGIAO"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_REGIAO]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[CO_UF]"
+                      cachedDataType="i2"
+                      cachedName="CO_UF"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_UF]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[CO_MUNICIPIO]"
+                      cachedDataType="i4"
+                      cachedName="CO_MUNICIPIO"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_MUNICIPIO]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort.Inputs[Sort Input].Columns[IN_CAPITAL]"
+                      cachedDataType="i2"
+                      cachedName="IN_CAPITAL"
+                      lineageId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[IN_CAPITAL]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[NU_ANO_CENSO]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[NU_ANO_CENSO]"
+                      name="NU_ANO_CENSO">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NU_ANO_CENSO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_IES]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_IES]"
+                      name="CO_IES"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_IES]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[NO_IES]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[NO_IES]"
+                      name="NO_IES">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NO_IES]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[SG_IES]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[SG_IES]"
+                      name="SG_IES">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[SG_IES]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_MANTENEDORA]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_MANTENEDORA]"
+                      name="CO_MANTENEDORA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_MANTENEDORA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[NO_MANTENEDORA]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[NO_MANTENEDORA]"
+                      name="NO_MANTENEDORA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[NO_MANTENEDORA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]"
+                      name="TP_CATEGORIA_ADMINISTRATIVA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[TP_CATEGORIA_ADMINISTRATIVA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[TP_ORGANIZACAO_ACADEMICA]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[TP_ORGANIZACAO_ACADEMICA]"
+                      name="TP_ORGANIZACAO_ACADEMICA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[TP_ORGANIZACAO_ACADEMICA]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_REGIAO]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_REGIAO]"
+                      name="CO_REGIAO">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_REGIAO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_UF]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_UF]"
+                      name="CO_UF">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_UF]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_MUNICIPIO]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[CO_MUNICIPIO]"
+                      name="CO_MUNICIPIO">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[CO_MUNICIPIO]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[IN_CAPITAL]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort.Outputs[Sort Output].Columns[IN_CAPITAL]"
+                      name="IN_CAPITAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\IES.Outputs[OLE DB Source Output].Columns[IN_CAPITAL]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Sort 1"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort 1"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[CO_IES]"
+                      cachedDataType="i2"
+                      cachedName="CO_IES"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CO_IES]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[QT_CURSO_TOTAL]"
+                      cachedDataType="ui8"
+                      cachedName="QT_CURSO_TOTAL"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_CURSO_TOTAL]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[QT_INSCRITO_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_INSCRITO_TOTAL"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_INSCRITO_TOTAL]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[QT_VAGA_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_VAGA_TOTAL"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_VAGA_TOTAL]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[QT_INGRESSO_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_INGRESSO_TOTAL"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_INGRESSO_TOTAL]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[QT_CONCLUINTE_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_CONCLUINTE_TOTAL"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_CONCLUINTE_TOTAL]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[QT_MATRICULA_TOTAL]"
+                      cachedDataType="i8"
+                      cachedName="QT_MATRICULA_TOTAL"
+                      lineageId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_MATRICULA_TOTAL]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[CO_IES]"
+                      dataType="i2"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[CO_IES]"
+                      name="CO_IES"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[CO_IES]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_CURSO_TOTAL]"
+                      dataType="ui8"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_CURSO_TOTAL]"
+                      name="QT_CURSO_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_CURSO_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_INSCRITO_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_INSCRITO_TOTAL]"
+                      name="QT_INSCRITO_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_INSCRITO_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_VAGA_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_VAGA_TOTAL]"
+                      name="QT_VAGA_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_VAGA_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_INGRESSO_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_INGRESSO_TOTAL]"
+                      name="QT_INGRESSO_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_INGRESSO_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_CONCLUINTE_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_CONCLUINTE_TOTAL]"
+                      name="QT_CONCLUINTE_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_CONCLUINTE_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_MATRICULA_TOTAL]"
+                      dataType="i8"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[QT_MATRICULA_TOTAL]"
+                      name="QT_MATRICULA_TOTAL">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1].Columns[QT_MATRICULA_TOTAL]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Aggregate Output 1]"
+              endId="Package\Data Flow Task\Sort 1.Inputs[Sort Input]"
+              name="Aggregate Output 1"
+              startId="Package\Data Flow Task\Aggregate.Outputs[Aggregate Output 1]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Merge Join Output]"
+              endId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input]"
+              name="Merge Join Output"
+              startId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
+              endId="Package\Data Flow Task\Aggregate.Inputs[Aggregate Input 1]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\CURSO.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+              endId="Package\Data Flow Task\Sort.Inputs[Sort Input]"
+              name="OLE DB Source Output"
+              startId="Package\Data Flow Task\IES.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort 1.Outputs[Sort Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Sort Output1]"
+              endId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Left Input]"
+              name="Sort Output"
+              startId="Package\Data Flow Task\Sort.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Data Flow Task"
+          TopLeft="94,77" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="133,42"
+          Id="Package\Data Flow Task\Merge Join"
+          TopLeft="121,299" />
+        <NodeLayout
+          Size="108,42"
+          Id="Package\Data Flow Task\Sort 1"
+          TopLeft="218,214" />
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Data Flow Task\Recordset Destination"
+          TopLeft="96,387" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Data Flow Task\CURSO"
+          TopLeft="215,46" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\Data Flow Task\Aggregate"
+          TopLeft="211,144" />
+        <NodeLayout
+          Size="97,42"
+          Id="Package\Data Flow Task\IES"
+          TopLeft="66,45" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="272,256">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-63.6666666666667,43"
+              Start="0,0"
+              End="-63.6666666666667,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.4933135215453" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.4933135215453"
+                    Point2="0,25.4933135215453"
+                    Point3="-4,25.4933135215453" />
+                  <mssgle:LineSegment
+                    End="-59.6666666666667,25.4933135215453" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-59.6666666666667,25.4933135215453"
+                    Point2="-63.6666666666667,25.4933135215453"
+                    Point3="-63.6666666666667,29.4933135215453" />
+                  <mssgle:LineSegment
+                    End="-63.6666666666667,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="275.25,88">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="188.5,341">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,46"
+              Start="0,0"
+              End="0,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,11.25,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Aggregate Output 1]"
+          TopLeft="274,186">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Data Flow Task\Sort"
+          TopLeft="62,214" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[OLE DB Source Output1]"
+          TopLeft="113,87">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,127"
+              Start="0,0"
+              End="0,119.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,119.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Sort Output1]"
+          TopLeft="111.5,256">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="76,43"
+              Start="0,0"
+              End="76,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="72,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="72,21.5"
+                    Point2="76,21.5"
+                    Point3="76,25.5" />
+                  <mssgle:LineSegment
+                    End="76,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\CURSO">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\IES">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

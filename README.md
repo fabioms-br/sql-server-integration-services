@@ -5,6 +5,8 @@
 😉 Gostou do conteúdo? Inscreva-se também no canal: [http://www.fabioms.com.br/?url=youtube-subscribe](http://www.fabioms.com.br/?url=youtube-subscribe)
 
 > **Youtube playlist**: [https://youtube.com/playlist?list=PL3CylihEP9UTWDBYthJcazPG8czess0i4](https://youtube.com/playlist?list=PL3CylihEP9UTWDBYthJcazPG8czess0i4)  
+
+
 ## [1. Como Importar arquivo CSV no SQL Server Integration Services](/sql-server-ssis-importar-arquivo-csv.md)
 [#top10] Apresentamos nesse vídeo como importar um arquivo em formato CSV utilizando o SQL Server Integration Services.
 > Assista ao vídeo: [http://www.fabioms.com.br/?url=sql-server-ssis-importar-arquivo-csv](http://www.fabioms.com.br/?url=sql-server-ssis-importar-arquivo-csv)  

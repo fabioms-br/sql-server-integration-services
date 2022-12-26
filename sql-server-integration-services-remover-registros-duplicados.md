@@ -4,26 +4,34 @@
 
 Apresentamos nesse vídeo como remover os registros duplicados de uma tabela utilizando o SQL Server Integration Services.
 
-Iremos conhecer:
-- Identificar se existem registros duplicados na tabela (DISTINCT);
-- Exibir o plano de execução pela definição global (SET STATISTICS XML);
-- Calcular valores utilizando o SQL Server (SELECT, OPERATIONS);
-- Adicionar tarefa de fluxo de dados no projeto Integration Services (DATA FLOW TASK);
-- Obter os dados da tabela no SQL Server (OLE DB SOURCE, DATA CONNECTION, DATA ACCESS MODE);
-- Ordenar os dados e habilitar a remoção de todos os registros duplicados (SORT, DUPLICATE SORT VALUES);
-- Identificar os registros duplicados por agrupamento das colunas (AGGREGATE, GROUP BY, COUNT ALL);
-- Selecionar apenas os registros duplicados por separação condicional (CONDITIONAL SPLIT, OUTPUT);
-- Remover os registros duplicados por Código SQL dinâmico (OLE DB COMMAND; SQL COMMAND, PARAMS, COLUMN MAPPINGS, DELETE FROM);
-- Inserir os registros distintos por Código SQL dinâmico (OLE DB COMMAND; SQL COMMAND, PARAMS, COLUMN MAPPINGS, INSERT INTO);
-- Habilitar a visualização de dados entre as tarefas (DATA VIEWER);
-- Executar o pacote Integration Services no projeto (START, DESIGN);
-- Exibir na visualização dos dados os registros em memória (BUFFER);
-- Identificar se existem registros duplicados na tabela (DISTINCT, EXECUTION PLAN);
+Iremos conhecer as técnicas:
+🔹Identificar se existem registros duplicados na tabela (DISTINCT);  
+🔹Exibir o plano de execução pela definição global (SET STATISTICS XML);  
+🔹Calcular valores utilizando o SQL Server (SELECT, OPERATIONS);  
+🔹Adicionar tarefa de fluxo de dados no projeto Integration Services (DATA FLOW TASK);  
+🔹Obter os dados da tabela no SQL Server (OLE DB SOURCE, DATA CONNECTION, DATA ACCESS MODE);  
+🔹Ordenar os dados e habilitar a remoção de todos os registros duplicados (SORT, DUPLICATE SORT VALUES);  
+🔹Identificar os registros duplicados por agrupamento das colunas (AGGREGATE, GROUP BY, COUNT ALL);  
+🔹Selecionar apenas os registros duplicados por separação condicional (CONDITIONAL SPLIT, OUTPUT);  
+🔹Remover os registros duplicados por Código SQL dinâmico (OLE DB COMMAND; SQL COMMAND, PARAMS, COLUMN MAPPINGS, DELETE FROM);  
+🔹Inserir os registros distintos por Código SQL dinâmico (OLE DB COMMAND; SQL COMMAND, PARAMS, COLUMN MAPPINGS, INSERT INTO);  
+🔹Habilitar a visualização de dados entre as tarefas (DATA VIEWER);  
+🔹Executar o pacote Integration Services no projeto (START, DESIGN);  
+🔹Exibir na visualização dos dados os registros em memória (BUFFER);  
+🔹Identificar se existem registros duplicados na tabela (DISTINCT, EXECUTION PLAN);  
 
-✅ Acesse o vídeo no link abaixo:
+▶️ Acesse o vídeo no link abaixo:
 http://www.fabioms.com.br/?url=sql-server-integration-services-remover-registros-duplicados
 
 😉 Gostou do conteúdo? Inscreva-se também no canal:
 http://www.fabioms.com.br/?url=youtube-subscribe 
+
+📁 Siga-me no GitHub, disponibilizo os arquivos: 
+🔹Script em SQL;   
+🔹Código Python no SQL Server;  
+🔹Código Pyhton no Azure Databricks e Azuyre Synapse Analytics;  
+🔹Código JSON dos objetos do Azure Data Factory;   
+🔹Entre outros que foram utilizados nos vídeos.  
+http://www.fabioms.com.br/?url=github
 
 #microsoft #dataplatform #sqlserver #integrationservices #datatransformation #sql #data #mvp #dicadofabinho

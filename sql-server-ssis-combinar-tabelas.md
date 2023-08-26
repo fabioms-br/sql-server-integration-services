@@ -1,6 +1,6 @@
 ## Como Combinar Valores de Tabelas no SQL Server Integration Services
 
-<img src="https://fabioms.com.br//uploads/youtube/Z62dA-Ii0mo.png" alt="Como Combinar Valores de Tabelas no SQL Server Integration Services" title="SQL Server Integration Services" width="320"/>
+<img src="https://fabioms.com.br//uploads/youtube/Slide48.png" alt="Como Combinar Valores de Tabelas no SQL Server Integration Services" title="SQL Server Integration Services" width="320"/>
 
 Apresentamos nesse vídeo como utilizar o o SQL Server Integration Services para agregar os valores e combinar tabelas, sem a necessidade de inseri-los no banco de dados com o recurso de visualização de dados.
 

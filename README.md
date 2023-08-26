@@ -8,9 +8,9 @@
 
 
 ## [1. Como Combinar Valores de Tabelas no SQL Server Integration Services](/sql-server-ssis-combinar-tabelas.md)
-Apresentamos nesse vídeo como utilizar o o SQL Server Integration Services para agregar os valores e combinar tabelas, sem a necessidade de inseri-los no banco de dados com o recurso de visualização de dados.
+Como utilizar o o SQL Server Integration Services para combinar valores de tabelas, utilizando o recurso de pre-visualização dos dados
 > Assista ao vídeo: [http://www.fabioms.com.br/?url=sql-server-ssis-combinar-tabelas](http://www.fabioms.com.br/?url=sql-server-ssis-combinar-tabelas)  
 
-## [2. Remover registros duplicados no SQL Server Integration Services](/sql-server-integration-services-remover-registros-duplicados.md)
+## [2. Como remover registros duplicados no SQL Server Integration Services](/sql-server-integration-services-remover-registros-duplicados.md)
 Apresentamos nesse vídeo como remover os registros duplicados de uma tabela utilizando o SQL Server Integration Services.
 > Assista ao vídeo: [http://www.fabioms.com.br/?url=sql-server-integration-services-remover-registros-duplicados](http://www.fabioms.com.br/?url=sql-server-integration-services-remover-registros-duplicados)  

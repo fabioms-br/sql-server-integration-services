@@ -1,6 +1,6 @@
-## Remover registros duplicados no SQL Server Integration Services
+## Como remover registros duplicados no SQL Server Integration Services
 
-<img src="https://fabioms.com.br//uploads/youtube/OM5SAOTrRRQ.png" alt="Remover registros duplicados no SQL Server Integration Services" title="SQL Server Integration Services" width="320"/>
+<img src="https://fabioms.com.br//uploads/youtube/Slide68.png" alt="Como remover registros duplicados no SQL Server Integration Services" title="SQL Server Integration Services" width="320"/>
 
 Apresentamos nesse vídeo como remover os registros duplicados de uma tabela utilizando o SQL Server Integration Services.
 
